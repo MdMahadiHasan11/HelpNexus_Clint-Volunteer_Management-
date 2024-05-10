@@ -1,9 +1,146 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Update = () => {
+
+    const { id } = useParams();
+    console.log(id);
+    const [products, setProducts] = useState({});
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/updateVolunteer/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data);
+                console.log(data)
+            })
+    }, [id])
+
+
     return (
-        <div>
-            
+        <div className='flex justify-center items-center min-h-[calc(100vh-306px)] w-full my-12'>
+            {products.Title}
+            {/* <section className=' p-2 md:p-6 mx-auto bg-white rounded-md shadow-2xl '>
+                <h2 className='text-2xl font-bold text-center  text-gray-700 capitalize '>
+                    Add Volunteer Post
+                </h2>
+
+                <form onSubmit={handleAdd} className="mx-auto">
+                    <div className="lg:flex">
+                        <div className="lg:w-full lg:mr-4 ">
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Name</span>
+                                </label>
+                                <input type="text" name="Name" placeholder="Name" className="input input-bordered" readOnly
+                                    value={user.displayName} />
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Title</span>
+                                </label>
+                                <input type="text" name="Title" placeholder="Title" className="input input-bordered" required />
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Thumbnail Url</span>
+                                </label>
+                                <input type="text" name="Thumbnail" placeholder="Thumbnail Url" className="input input-bordered" required />
+                            </div>
+
+
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Location</span>
+                                </label>
+                                <input type="text" name="Location" placeholder="Location" className="input input-bordered" required />
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div className="lg:w-full">
+
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Email</span>
+                                </label>
+                                <input type="text" name="Email" className="input input-bordered" readOnly
+                                    value={user.email} />
+                            </div>
+
+                            <label className="form-control">
+                                <div className="label font-bold">
+                                    <span className="label-text">Category</span>
+                                </div>
+
+
+                                <select className="select select-bordered " value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+                                    <option value="React.js">React.js</option>
+                                    <option value="MongoDB">MongoDB</option>
+                                    <option value="Express.js">Express.js</option>
+                                    <option value="Node.js">Node.js</option>
+                                </select>
+                            </label>
+
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">No of Volunteers</span>
+                                </label>
+                                <input type="number" name="NoVolunteers" placeholder="No of Volunteers" className="input input-bordered" required />
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text font-semibold">Deadline</span>
+                                </label>
+                                
+                                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="dd/MM/yyyy" className='input input-bordered w-full' />
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text font-semibold">Description</span>
+                        </label>
+                        <textarea type="text" name="description" rows={5} placeholder="Description" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary">Add Post</button>
+                    </div>
+                </form>
+                <div>
+
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+
+                    />
+                    
+                    <ToastContainer />
+                </div>
+
+            </section> */}
         </div>
     );
 };

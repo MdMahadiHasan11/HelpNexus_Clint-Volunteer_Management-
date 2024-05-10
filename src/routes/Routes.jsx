@@ -11,6 +11,7 @@ import PrivateRoute from "./privateRoute/PrivateRoute";
 import AllNeedVolunteer from "../pages/allNeedVolunteer/AllNeedVolunteer";
 import Details from "../pages/detail/Details";
 import ManageMyPost from "../pages/manageMyPost/ManageMyPost";
+import Update from "../pages/update/Update";
 
 const Routes = createBrowserRouter([
     {
@@ -58,10 +59,10 @@ const Routes = createBrowserRouter([
             //     element: <Category></Category>,
 
             // },
-            // {
-            //     path: '/update/:id',
-            //     element: <PrivateRoute><Update></Update></PrivateRoute>
-            // },
+            {
+                path: '/update/:id',
+                element: <PrivateRoute><Update></Update></PrivateRoute>
+            },
         ]
     },
 ]);
