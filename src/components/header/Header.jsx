@@ -41,6 +41,7 @@ const Header = () => {
         <li className="font-bold"><NavLink to="/">Home</NavLink></li>
         <li className="font-bold"><NavLink to="/allNeedVolunteer">Need Volunteer Page</NavLink></li>
         <li className="font-bold"><NavLink to="/manageMyPost">Manage My Post</NavLink></li>
+        <li className="font-bold"><NavLink to="/needVolunteer">Add Volunteer Post</NavLink></li>
 
 
     </>
