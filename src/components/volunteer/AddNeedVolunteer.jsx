@@ -27,7 +27,6 @@ const AddNeedVolunteer = () => {
         const Location = form.get('Location')
         const NoVolunteers = form.get('NoVolunteers')
         // const processingTime = form.get('processingTime')
-        const customization = form.get('customization')
         // const stockStatus = form.get('stockStatus');
         // const image = form.get('image')
         const userName = user.displayName;
@@ -130,7 +129,7 @@ const AddNeedVolunteer = () => {
                                 </div>
 
 
-                                <select className="select select-bordered " value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+                                <select className="select select-bordered " value={selectedCategory} onChange={(e) => setSelectedOption(e.target.value)}>
                                     <option value="React.js">React.js</option>
                                     <option value="MongoDB">MongoDB</option>
                                     <option value="Express.js">Express.js</option>

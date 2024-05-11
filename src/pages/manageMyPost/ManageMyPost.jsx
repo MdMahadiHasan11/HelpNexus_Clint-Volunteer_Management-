@@ -105,7 +105,7 @@ const ManageMyPost = () => {
                             </td>
                             <td className="text-lg border-2 font-bold">{item.startDate ? item.startDate : 'No date selected'}</td>
                             <th className="border-2">
-                                <Link to={`/details/${item._id}`}><button className="btn bg-orange-600 ">View Details</button></Link>
+                                {/* <Link to={`/details/${item._id}`}><button className="btn bg-orange-600 ">View Details</button></Link> */}
 
 
 
