@@ -43,7 +43,7 @@ const Details = () => {
                     </div>
 
 
-                    <Link to={`/update/${viewVolunteer._id}`}><button className="btn bg-orange-600">Be A Volunteer</button></Link>
+                    <Link to={`/beVolunteer/${viewVolunteer._id}`}><button className="btn bg-orange-600">Be A Volunteer</button></Link>
 
                 </div>
             </div>
