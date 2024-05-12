@@ -7,7 +7,7 @@ const NeedVolunteerCard = ({needVolunteer}) => {
 
 
     return (
-        <div className="card w-96 bg-slate-200 text-neutral-content">
+        <div className="card  bg-slate-200 text-neutral-content">
             <div className="card-body text-black items-center text-center">
                 <h2 className="card-title">{Title}</h2>
                 <p>{description}</p>
