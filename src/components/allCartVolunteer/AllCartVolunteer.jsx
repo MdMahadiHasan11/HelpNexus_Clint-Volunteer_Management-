@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllCartVolunteer = ({needVolunteerPost}) => {
-    const {_id,Title,selectedCategory,Thumbnail,NoVolunteers} = needVolunteerPost;
+    const {_id,Title,selectedCategory,Thumbnail,NoVolunteers,startDate} = needVolunteerPost;
     return (
         <div>
             <div className="p-4 bg-base-200 rounded-lg">
@@ -27,6 +27,7 @@ const AllCartVolunteer = ({needVolunteerPost}) => {
 
                         <div className="flex justify-between text-xl font-semibold">
                             <p>Rating:{NoVolunteers}</p>
+                            <p>Dead line:{new Date(startDate).toLocaleDateString()}</p>
                         </div>
                         <div className="flex my-6 justify-between  font-semibold">
                             <p className="font-bold">

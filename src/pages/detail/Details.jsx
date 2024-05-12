@@ -32,12 +32,12 @@ const Details = () => {
                     <p className="font-bold">Category: <span>{viewVolunteer.selectedCategory}</span></p>
                     <hr className="border-b border-gray-300 my-4" />
                     <div className="flex justify-between text-xl font-semibold">
-                        <p>NoVolunteers:{viewVolunteer.NoVolunteers}</p>
+                        <p>No of Volunteers : {viewVolunteer.NoVolunteers}</p>
                         {/* <p><span className="ml-4">Rating:</span>{viewVolunteer.rating}</p> */}
                     </div>
                     <div className="flex my-6 justify-between text-xl font-semibold">
                         <p className="font-bold">
-                        startDate:{viewVolunteer.startDate}
+                        Dead Line: {new Date(viewVolunteer.startDate).toLocaleDateString()}
                         </p>
                         {/* <p>Customization:{viewVolunteer.customization}</p> */}
                     </div>

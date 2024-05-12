@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../components/providers/AuthProvider';
 import DatePicker from "react-datepicker";
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,6 +10,7 @@ const BeVolunteer = () => {
 
     const { id } = useParams();
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
 
     const [beVolunteer, setBeVolunteer] = useState({});
@@ -35,6 +36,7 @@ const BeVolunteer = () => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
 
+        const jobId = beVolunteer._id;
         const Thumbnail = form.get('Thumbnail');
         const Title = form.get('Title');
         const description = form.get('description');
@@ -52,7 +54,7 @@ const BeVolunteer = () => {
 
 
 
-        const beVolunteerP = { organizerName, organizerEmail, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory, volunteerName, volunteerEmail, Suggestion, Status }
+        const beVolunteerP = { jobId, organizerName, organizerEmail, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory, volunteerName, volunteerEmail, Suggestion, Status }
 
         console.log(beVolunteerP)
 
@@ -68,14 +70,16 @@ const BeVolunteer = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-
+                    e.target.reset();
+                    navigate('/')
+                    
                     Swal.fire({
                         title: 'Success!',
                         text: 'Added Be a Volunteer Post Successfully',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
-                    e.target.reset();
+                    
 
                 }
             })
@@ -167,7 +171,7 @@ const BeVolunteer = () => {
                                     <span className="label-text font-semibold">Dead Line:</span>
                                 </label>
                                 <input type="text" name="date" className="input " readOnly
-                                    value={beVolunteer.startDate} />
+                                    value={new Date(beVolunteer.startDate).toLocaleDateString()} />
                             </div>
 
 

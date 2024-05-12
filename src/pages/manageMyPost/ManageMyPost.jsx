@@ -81,7 +81,7 @@ const ManageMyPost = () => {
                 {
                     items.map((item, index) => <tbody key={item._id}
                     >
-
+                        
                         {/* row 1 */}
                         <tr className=" border-2">
                             <th className=" border-2">
@@ -103,9 +103,11 @@ const ManageMyPost = () => {
                             <td className="text-lg font-bold border-2">
                                 {item.selectedCategory}
                             </td>
-                            <td className="text-lg border-2 font-bold">{item.startDate ? item.startDate : 'No date selected'}</td>
+                            <td className="text-lg border-2 font-bold">{new Date(item.startDate).toLocaleDateString()}</td>
+
+                            {/* <td className="text-lg border-2 font-bold">{item.startDate ?  new Date(item.startDate).toLocaleDateString: 'No date selected'}</td> */}
                             <th className="border-2">
-                                {/* <Link to={`/details/${item._id}`}><button className="btn bg-orange-600 ">View Details</button></Link> */}
+                                {/* <Link to={`/details/${item._id}`}><button  className="btn bg-orange-600 ">View Details</button></Link> */}
 
 
 
