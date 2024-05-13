@@ -8,6 +8,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import DynamicTitle from '../dynamicTitle/DynamicTitle';
 
 const AddNeedVolunteer = () => {
 
@@ -67,6 +68,7 @@ const AddNeedVolunteer = () => {
 
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)] w-full my-12'>
+            <DynamicTitle></DynamicTitle>
             <section className=' p-2 md:p-6 mx-auto bg-white rounded-md shadow-2xl '>
                 <h2 className='text-2xl font-bold text-center  text-gray-700 capitalize '>
                     Add Volunteer Post

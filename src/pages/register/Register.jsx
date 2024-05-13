@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../components/providers/AuthProvider";
+import DynamicTitle from "../../components/dynamicTitle/DynamicTitle";
 // import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
@@ -93,6 +94,7 @@ const Register = () => {
     
     return (
         <div className="mt-10">
+            <DynamicTitle></DynamicTitle>
             <div>
                 <div className="text-center lg:text-left">
                     <div className="flex justify-center items-center">

@@ -4,6 +4,8 @@ import { Link, NavLink, useLoaderData } from "react-router-dom";
 import Slider from "../../components/slider/Slider";
 import AllCartVolunteer from "../../components/allCartVolunteer/AllCartVolunteer";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import DynamicTitle from "../../components/dynamicTitle/DynamicTitle";
 
 const Home = () => {
 
@@ -28,6 +30,12 @@ const Home = () => {
 
     return (
         <div>
+            {/* <Helmet>
+                <meta charSet="utf-8" />
+                <title>Home - HelpNexus</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet> */}
+            <DynamicTitle></DynamicTitle>
             <Slider></Slider>
             <div>
                 <div className="container mx-auto">

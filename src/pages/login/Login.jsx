@@ -15,6 +15,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
 import app from "../../firebase/firebase.config";
 import { AuthContext } from "../../components/providers/AuthProvider";
+import DynamicTitle from "../../components/dynamicTitle/DynamicTitle";
 
 const Login = () => {
 
@@ -73,6 +74,7 @@ const Login = () => {
 
     return (
         <div className="mt-10">
+            <DynamicTitle></DynamicTitle>
             <div>
                 <div className="text-center lg:text-left">
                     <div className="flex justify-center items-center"

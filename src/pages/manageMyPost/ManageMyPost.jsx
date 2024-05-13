@@ -6,6 +6,8 @@ import { AuthContext } from "../../components/providers/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import MyRequest from "../myVolunteerrequest/MyRequest";
+import DynamicTitle from "../../components/dynamicTitle/DynamicTitle";
+import img2 from '../../../public/image/empty1.jpg'
 
 const ManageMyPost = () => {
     const { user } = useContext(AuthContext) || {};
@@ -64,70 +66,84 @@ const ManageMyPost = () => {
 
     return (
         <div className="mt-10 overflow-x-auto">
-            <table className="table">
-                {/* head */}
-                <thead >
-                    <tr className=" border-2" >
-                        <th className="text-lg border-2 font-bold" >
-                            Si No
-                        </th >
-                        <th className="text-lg border-2 font-bold">Title</th>
-                        <th className="text-lg  border-2font-bold">Category</th>
-                        <th className="text-lg border-2 font-bold">Dead Line</th>
-                        <th className="text-lg border-2 font-bold"></th>
-                    </tr>
-                </thead>
+            <DynamicTitle></DynamicTitle>
+            {
+                !items.length ?
+                    <> <p className="text-center">Empty Post</p>
+                        <div className="flex justify-center items-center" >
+                            <img className="h-[300px]" src={img2} alt="" />
+                        </div>
+                    </>
+                    : <>
+                        <table className="table">
+                            {/* head */}
+                            <thead >
+                                <tr className=" border-2" >
+                                    <th className="text-lg border-2 font-bold" >
+                                        Si No
+                                    </th >
+                                    <th className="text-lg border-2 font-bold">Title</th>
+                                    <th className="text-lg  border-2font-bold">Category</th>
+                                    <th className="text-lg border-2 font-bold">Dead Line</th>
+                                    <th className="text-lg border-2 font-bold"></th>
+                                </tr>
+                            </thead>
 
 
-                {
-                    items.map((item, index) => <tbody key={item._id}
-                    >
-                        
-                        {/* row 1 */}
-                        <tr className=" border-2">
-                            <th className=" border-2">
-                                {index + 1}
-                            </th>
-                            <td className=" border-2">
-                                <div className="flex items-center gap-3">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img src={item.Thumbnail} alt="Avatar Tailwind CSS Component" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="text-lg font-bold">{item.Title}</div>
+                            {
+                                items.map((item, index) => <tbody key={item._id}
+                                >
 
-                                    </div>
-                                </div>
-                            </td>
-                            <td className="text-lg font-bold border-2">
-                                {item.selectedCategory}
-                            </td>
-                            <td className="text-lg border-2 font-bold">{new Date(item.startDate).toLocaleDateString()}</td>
+                                    {/* row 1 */}
+                                    <tr className=" border-2">
+                                        <th className=" border-2">
+                                            {index + 1}
+                                        </th>
+                                        <td className=" border-2">
+                                            <div className="flex items-center gap-3">
+                                                <div className="avatar">
+                                                    <div className="mask mask-squircle w-12 h-12">
+                                                        <img src={item.Thumbnail} alt="Avatar Tailwind CSS Component" />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="text-lg font-bold">{item.Title}</div>
 
-                            {/* <td className="text-lg border-2 font-bold">{item.startDate ?  new Date(item.startDate).toLocaleDateString: 'No date selected'}</td> */}
-                            <th className="border-2">
-                                {/* <Link to={`/details/${item._id}`}><button  className="btn bg-orange-600 ">View Details</button></Link> */}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td className="text-lg font-bold border-2">
+                                            {item.selectedCategory}
+                                        </td>
+                                        <td className="text-lg border-2 font-bold">{new Date(item.startDate).toLocaleDateString()}</td>
 
-
-
-
-                                <button onClick={() => handleDelete(item._id)} className="btn bg-orange-600">Delete</button>
-                                <Link to={`/update/${item._id}`}><button className="btn bg-orange-600">Update</button></Link>
+                                        {/* <td className="text-lg border-2 font-bold">{item.startDate ?  new Date(item.startDate).toLocaleDateString: 'No date selected'}</td> */}
+                                        <th className="border-2">
+                                            {/* <Link to={`/details/${item._id}`}><button  className="btn bg-orange-600 ">View Details</button></Link> */}
 
 
 
 
-
-                            </th>
-                        </tr>
-
-                    </tbody>)
-                }
+                                            <button onClick={() => handleDelete(item._id)} className="btn bg-orange-600">Delete</button>
+                                            <Link to={`/update/${item._id}`}><button className="btn bg-orange-600">Update</button></Link>
 
 
-            </table>
+
+
+
+                                        </th>
+                                    </tr>
+
+                                </tbody>)
+                            }
+
+
+                        </table>
+
+                    </>
+            }
+
+
             <MyRequest></MyRequest>
         </div>
     );

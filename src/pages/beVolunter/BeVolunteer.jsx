@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import "react-datepicker/dist/react-datepicker.css";
+import { Helmet } from 'react-helmet';
 
 const BeVolunteer = () => {
 
@@ -91,6 +92,11 @@ const BeVolunteer = () => {
 
     return (
         <div className='bg-slate-100 mt-10 text-center lg:text-left'>
+             <Helmet>
+                <meta charSet="utf-8" />
+                <title>Be Volunteer</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <section className='container  p-2 md:p-6 mx-auto bg-white rounded-md shadow-2xl '>
                 <h2 className='text-2xl font-bold text-center  text-gray-700 capitalize '>
                     Be Volunteer  Post

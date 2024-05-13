@@ -5,31 +5,38 @@ import DatePicker from "react-datepicker";
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import "react-datepicker/dist/react-datepicker.css";
+import { Helmet } from 'react-helmet';
 
 const Update = () => {
 
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     console.log(id);
-    
+
     const [volunteer, setVolunteer] = useState({});
+
+    const [selectedCategory, setSelectedOption] = useState("React.js");
+    
 
     useEffect(() => {
         fetch(`http://localhost:5000/updateVolunteer/${id}`)
             .then(res => res.json())
             .then(data => {
                 setVolunteer(data);
-                // console.log(data)
+                
             })
     }, [id])
 
-   
-    // const op =volunteer.startDate
-    const [selectedCategory, setSelectedOption] = useState("React.js");
+    // useState(new Date());
     const [startDate, setStartDate] = useState(new Date());
 
+    // const prvDate =
+    // setStartDate = new Date(volunteer.startDate).toLocaleDateString()
+    
+    
 
-   
+
+
     const handleUpdate = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -77,6 +84,12 @@ const Update = () => {
 
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)] w-full my-12'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Update HelpNexus</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+
             <section className=' p-2 md:p-6 mx-auto bg-white rounded-md shadow-2xl '>
                 <h2 className='text-2xl font-bold text-center  text-gray-700 capitalize '>
                     Update Volunteer Need Post

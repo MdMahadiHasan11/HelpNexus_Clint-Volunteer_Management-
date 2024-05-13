@@ -3,6 +3,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 import NeedVolunteerCard from "../../components/needVolunteerCard/NeedVolunteerCard";
 import { useEffect, useState } from "react";
+import DynamicTitle from "../../components/dynamicTitle/DynamicTitle";
 
 const AllNeedVolunteer = () => {
     // const needVolunteers = useLoaderData();
@@ -45,6 +46,7 @@ const AllNeedVolunteer = () => {
 
     return (
         <div>
+            <DynamicTitle></DynamicTitle>
             {/* title bar  */}
             <div>
                 <div>

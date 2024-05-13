@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useParams } from "react-router-dom";
-
 
 const Details = () => {
 
@@ -20,9 +20,14 @@ const Details = () => {
     }, [id])
 
 
-// { userName, email, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory }
+    // { userName, email, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory }
     return (
         <div className="hero min-h-screen mt-10 bg-base-200">
+             <Helmet>
+                <meta charSet="utf-8" />
+                <title>Details</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row">
                 <img src={viewVolunteer.Thumbnail} className="max-h-[550px] w-1/2 rounded-lg shadow-2xl" />
                 <div>
@@ -37,7 +42,7 @@ const Details = () => {
                     </div>
                     <div className="flex my-6 justify-between text-xl font-semibold">
                         <p className="font-bold">
-                        Dead Line: {new Date(viewVolunteer.startDate).toLocaleDateString()}
+                            Dead Line: {new Date(viewVolunteer.startDate).toLocaleDateString()}
                         </p>
                         {/* <p>Customization:{viewVolunteer.customization}</p> */}
                     </div>
