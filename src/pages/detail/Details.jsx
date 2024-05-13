@@ -22,13 +22,13 @@ const Details = () => {
 
     // { userName, email, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory }
     return (
-        <div className="hero min-h-screen mt-10 bg-base-200">
+        <div className="hero min-h-screen mt-10 bg-white divide-y divide-gray-200">
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Details</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-            <div className="hero-content flex-col lg:flex-row">
+            <div className="hero-content text-gray-500 bg-gray-50 flex-col lg:flex-row">
                 <img src={viewVolunteer.Thumbnail} className="max-h-[550px] w-1/2 rounded-lg shadow-2xl" />
                 <div>
                     <h1 className="lg:text-4xl md:text-2xl text-xl font-bold">{viewVolunteer.Title}</h1>
@@ -49,7 +49,7 @@ const Details = () => {
 
                     {
                         !viewVolunteer.NoVolunteers ?
-                            <><p className='font-extrabold'>No volunteers are needed at the moment</p></>
+                            <><p className='font-extrabold rounded-full gap-x-2 bg-yellow-100/60 text-red-500'>No volunteers are needed at the moment</p></>
                             : <>
                                 <Link to={`/beVolunteer/${viewVolunteer._id}`}><button className="btn bg-orange-600">Be A Volunteer</button></Link>
                             </>

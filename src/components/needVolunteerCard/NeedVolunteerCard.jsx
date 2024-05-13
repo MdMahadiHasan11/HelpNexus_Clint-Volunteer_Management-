@@ -14,7 +14,7 @@ const NeedVolunteerCard = ({ needVolunteer }) => {
 
                 {
                     !NoVolunteers ?
-                        <><p className='font-extrabold'>No volunteers are needed at the moment</p></>
+                        <><p className='font-extrabold rounded-full gap-x-2 bg-yellow-100/60 text-red-500'>No volunteers are needed at the moment</p></>
                         : <>
                             <p>No. of Volunteers Need:{NoVolunteers}</p>
                         </>
