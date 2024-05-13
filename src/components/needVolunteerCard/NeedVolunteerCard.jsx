@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NeedVolunteerCard = ({needVolunteer}) => {
+const NeedVolunteerCard = ({ needVolunteer }) => {
 
-    const {_id,Title, startDate , description} = needVolunteer;
+    const { _id, Title, NoVolunteers, startDate, description } = needVolunteer;
 
 
     return (
@@ -11,7 +11,16 @@ const NeedVolunteerCard = ({needVolunteer}) => {
             <div className="card-body text-black items-center text-center">
                 <h2 className="card-title">{Title}</h2>
                 <p>{description}</p>
-                <p>{startDate}</p>
+
+                {
+                    !NoVolunteers ?
+                        <><p className='font-extrabold'>No volunteers are needed at the moment</p></>
+                        : <>
+                            <p>No. of Volunteers Need:{NoVolunteers}</p>
+                        </>
+                }
+
+                <p>{new Date(startDate).toLocaleDateString()}</p>
                 <div className="card-actions justify-end">
                     <Link to={`/details/${_id}`}><button className="btn btn-primary">View Details</button></Link>
                 </div>

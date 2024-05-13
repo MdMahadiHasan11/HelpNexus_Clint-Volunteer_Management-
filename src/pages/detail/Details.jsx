@@ -23,7 +23,7 @@ const Details = () => {
     // { userName, email, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory }
     return (
         <div className="hero min-h-screen mt-10 bg-base-200">
-             <Helmet>
+            <Helmet>
                 <meta charSet="utf-8" />
                 <title>Details</title>
                 <link rel="canonical" href="http://mysite.com/example" />
@@ -47,12 +47,20 @@ const Details = () => {
                         {/* <p>Customization:{viewVolunteer.customization}</p> */}
                     </div>
 
+                    {
+                        !viewVolunteer.NoVolunteers ?
+                            <><p className='font-extrabold'>No volunteers are needed at the moment</p></>
+                            : <>
+                                <Link to={`/beVolunteer/${viewVolunteer._id}`}><button className="btn bg-orange-600">Be A Volunteer</button></Link>
+                            </>
+                    }
 
-                    <Link to={`/beVolunteer/${viewVolunteer._id}`}><button className="btn bg-orange-600">Be A Volunteer</button></Link>
+
+
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
