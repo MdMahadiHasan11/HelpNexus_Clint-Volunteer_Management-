@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../components/providers/AuthProvider";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import MyRequest from "../myVolunteerrequest/MyRequest";
 
 const ManageMyPost = () => {
     const { user } = useContext(AuthContext) || {};
@@ -127,6 +128,7 @@ const ManageMyPost = () => {
 
 
             </table>
+            <MyRequest></MyRequest>
         </div>
     );
 };

@@ -25,7 +25,7 @@ const AddNeedVolunteer = () => {
         const Title = form.get('Title');
         const description = form.get('description');
         const Location = form.get('Location')
-        const NoVolunteers = form.get('NoVolunteers')
+        const NoVolunteers = parseInt(form.get('NoVolunteers'))
         // const processingTime = form.get('processingTime')
         // const stockStatus = form.get('stockStatus');
         // const image = form.get('image')

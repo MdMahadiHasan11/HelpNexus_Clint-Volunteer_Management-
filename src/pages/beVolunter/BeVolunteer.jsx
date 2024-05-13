@@ -41,7 +41,7 @@ const BeVolunteer = () => {
         const Title = form.get('Title');
         const description = form.get('description');
         const Location = form.get('Location')
-        const NoVolunteers = form.get('NoVolunteers')
+        const NoVolunteers = parseInt(form.get('NoVolunteers'))
         const organizerName = form.get('organizerName')
         const organizerEmail = form.get('organizerEmail')
         const selectedCategory = form.get('category')
