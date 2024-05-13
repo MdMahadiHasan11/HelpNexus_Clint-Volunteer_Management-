@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import { useLoaderData } from "react-router-dom";
+import { Link, NavLink, useLoaderData } from "react-router-dom";
 import Slider from "../../components/slider/Slider";
 import AllCartVolunteer from "../../components/allCartVolunteer/AllCartVolunteer";
 import { useEffect, useState } from "react";
@@ -14,7 +14,7 @@ const Home = () => {
         fetch(`http://localhost:5000/sortDate`)
             .then(res => res.json())
             .then(data => {
-                setNeedVolunteerPosts(data); 
+                setNeedVolunteerPosts(data);
                 setLoading(false);
                 console.log(data);
             })
@@ -43,6 +43,10 @@ const Home = () => {
                         )}
 
 
+                    </div>
+
+                    <div className="flex justify-center items-center">
+                        <NavLink to={`/allNeedVolunteer`}><button className="btn bg-orange-600">See all</button></NavLink>
                     </div>
 
                 </div>
