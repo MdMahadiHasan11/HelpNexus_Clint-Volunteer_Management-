@@ -92,14 +92,15 @@ const Home = () => {
                 <div className='my-10'>
                     <p data-aos="fade-down"
                         data-aos-easing="ease-out-cubic"
-                        data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 py-8 mt-6 mb-2 text-white">Volunteer Category</p>
+                        data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 py-8 mt-6 mb-2 text-white">Volunteer Category
+                    </p>
                 </div>
 
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4   mx-auto" >
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8   mx-auto" >
 
 
                     <div>
-                        <div className="bg-base-300 shadow-xl text-center   rounded-2xl">
+                        <div className="bg-base-300 border shadow-xl text-center   rounded-2xl">
                             <Link to={`/category/React.js`}>
                                 <div className="flex justify-center items-center ">
                                     <img src='https://i.ibb.co/bPGTTBD/1708753498052.png' alt="Movie" className=" max-h-[350px] w-full   " />
@@ -115,7 +116,7 @@ const Home = () => {
                     </div>
 
                     <div>
-                        <div className="bg-base-300 shadow-xl text-center   rounded-2xl">
+                        <div className="bg-base-300 border shadow-xl text-center   rounded-2xl">
                             <Link to={`/category/Express.js`}>
                                 <div className="flex justify-center items-center ">
                                     <img src='https://i.ibb.co/s6gHF3w/mongodb-developers.jpg' alt="Movie" className=" h-max-[350px]    " />
@@ -131,7 +132,7 @@ const Home = () => {
                     </div>
 
                     <div>
-                        <div className="bg-base-300 shadow-xl text-center   rounded-2xl">
+                        <div className="bg-base-300 border shadow-xl text-center   rounded-2xl">
                             <Link to={`/category/Node.js`}>
                                 <div className="flex justify-center items-center ">
                                     <img src='https://i.ibb.co/bPGTTBD/1708753498052.png' alt="Movie" className=" max-h-[350px] w-full   " />
@@ -147,7 +148,7 @@ const Home = () => {
                     </div>
 
                     <div>
-                        <div className="bg-base-300 shadow-xl text-center   rounded-2xl">
+                        <div className="bg-base-300 border shadow-xl text-center   rounded-2xl">
                             <Link to={`/category/MongoDB`}>
                                 <div className="flex justify-center items-center ">
                                     <img src='https://i.ibb.co/s6gHF3w/mongodb-developers.jpg' alt="Movie" className=" max-h-[350px] w-full   " />
@@ -179,7 +180,7 @@ const Home = () => {
 
 
                 <div className="container mx-auto">
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 ">
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 ">
                         {loading1 ? (<span className="loading loading-spinner text-info mx-auto"></span>) : (
                             newNeedVolunteerPosts1.map(needVolunteerPost1 => <AllNewCartHome key={needVolunteerPost1._id}
                                 needVolunteerPost1={needVolunteerPost1}></AllNewCartHome>)

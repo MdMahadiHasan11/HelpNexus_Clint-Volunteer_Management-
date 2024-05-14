@@ -117,10 +117,10 @@ const Header = () => {
                     user ? <button onClick={handleSignOut} className="btn bg-orange-600 text-lg mr-4">
                         Log Out
                     </button> : <span>
-                        <button className="btn mr-4 bg-orange-600 text-lg">
+                        <button className="btn px-7 mr-4 bg-orange-600 text-lg">
                             <NavLink to="/login">Login</NavLink>
                         </button>
-                        <button className="btn bg-orange-600 text-lg">
+                        <button className="btn bg-orange-600 mr-4 text-lg">
                             <NavLink to="/register">Register</NavLink>
                         </button>
 

@@ -18,7 +18,7 @@ const MyRequest = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/requestVolunteer/${user?.email}`,{credentials :'include'})
+        fetch(`http://localhost:5000/requestVolunteer/${user?.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -26,7 +26,7 @@ const MyRequest = () => {
                 // displayAll(data)
             })
 
-    }, [user,requestItems])
+    }, [user, requestItems])
 
     useEffect(() => {
 
@@ -97,42 +97,51 @@ const MyRequest = () => {
 
 
     return (
-        <section className='container px-4 mx-auto pt-12'>
+        <section className='  mx-auto py-12'>
             {
                 !requestItems.length ?
-                    <> <p className="text-center">Empty</p>
+                    <>
+                        <div className='my-10'>
+                            <p data-aos="fade-down"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 py-8 mt-6 mb-2 text-white">My Request
+                            </p>
+                        </div>
+                        <p className="text-center text-3xl font-bold">My Volunteer Request have no data!!</p>
                         <div className="flex justify-center items-center" >
-                            <img className="h-[300px]" src={img} alt="" />
+                            <img className="my-20 h-[300px]" src={img} alt="" />
                         </div>
                     </> :
                     <>
-                        <div className='flex items-center gap-x-3'>
-                            <h2 className='text-lg font-medium text-gray-800 '>My Request</h2>
 
-                            <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
-                                {requestItems.length}
-                            </span>
+                        <div className='my-10'>
+                            <p data-aos="fade-down"
+                                data-aos-easing="ease-out-cubic"
+                                data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 py-8 mt-6 mb-2 text-white">My Request
+                            </p>
                         </div>
+                        {/* <div className='flex items-center gap-x-3'>
+                        </div> */}
 
                         <div className='flex flex-col mt-6'>
                             <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
                                 <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
                                     <div className='overflow-hidden border border-gray-200  md:rounded-lg'>
                                         <table className='min-w-full divide-y divide-gray-200'>
-                                            <thead className='bg-gray-50'>
+                                            <thead className='bg-gray-50 text-lg font-bold'>
                                                 <tr>
                                                     <th
                                                         scope='col'
                                                         className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                                                     >
-                                                        <span>Si No</span>
+                                                        <span className="text-lg font-bold">Si No</span>
                                                     </th>
                                                     <th
                                                         scope='col'
                                                         className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500'
                                                     >
                                                         <div className='flex items-center gap-x-3'>
-                                                            <span>Title</span>
+                                                            <span className="text-lg font-bold">Title</span>
                                                         </div>
                                                     </th>
 
@@ -140,7 +149,7 @@ const MyRequest = () => {
                                                         scope='col'
                                                         className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                                                     >
-                                                        <span>Deadline</span>
+                                                        <span className="text-lg font-bold">Deadline</span>
                                                     </th>
 
 
@@ -149,18 +158,18 @@ const MyRequest = () => {
                                                         scope='col'
                                                         className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                                                     >
-                                                        Category
+                                                        <span className="text-lg font-bold">Category</span>
                                                     </th>
 
                                                     <th
                                                         scope='col'
                                                         className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                                                     >
-                                                        Status
+                                                        <span className="text-lg font-bold">Status</span>
                                                     </th>
 
                                                     <th className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
-                                                        Actions
+                                                        <span className="text-lg font-bold">Action</span>
                                                     </th>
                                                 </tr>
                                             </thead>

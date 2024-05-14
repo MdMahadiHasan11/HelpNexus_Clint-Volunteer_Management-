@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import DynamicTitle from "../../components/dynamicTitle/DynamicTitle";
 import { RiLayoutGrid2Fill } from "react-icons/ri";
 import { MdTableRows } from "react-icons/md";
+import { FiDivideCircle } from "react-icons/fi";
 
 const AllNeedVolunteer = () => {
     // const needVolunteers = useLoaderData();
@@ -46,12 +47,12 @@ const AllNeedVolunteer = () => {
 
 
     // layout
-    
-    const [layout,setLayout] =useState(true);
+
+    const [layout, setLayout] = useState(true);
 
     const handleDelete = _id => {
         if (_id === 'table') {
-            
+
             setLayout(false)
 
         }
@@ -64,7 +65,7 @@ const AllNeedVolunteer = () => {
             {/* title bar  */}
             <div>
                 <div>
-                    <div className="navbar bg-base-300 rounded-box">
+                    <div className="navbar bg-gray-50 border rounded-box">
                         <div className="flex-1 px-2 lg:flex-none">
                             <form>
                                 <div className="flex-1 px-2 lg:flex-none">
@@ -82,11 +83,11 @@ const AllNeedVolunteer = () => {
                         <div className="flex justify-end flex-1 px-2">
                             <div className="flex items-stretch">
 
-                                
+
 
 
                                 <button onClick={() => handleDelete('grid')} className="btn btn-ghost rounded-btn text-3xl mx-4"><RiLayoutGrid2Fill /></button>
-                                <button onClick={() => handleDelete('table')} className="btn btn-ghost rounded-btn text-3xl "><MdTableRows /></button>
+                                <button onClick={() => handleDelete('table')} className="btn btn-ghost mr-10 rounded-btn text-3xl "><MdTableRows /></button>
                             </div>
                         </div>
                     </div>
@@ -102,11 +103,12 @@ const AllNeedVolunteer = () => {
                     <>
 
                         {/* grid form */}
-                        <div className="container mx-auto">
-                            <div>
+                        <div className="">
+                            <div className='my-10'>
                                 <p data-aos="fade-down"
                                     data-aos-easing="ease-out-cubic"
-                                    data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-yellow-700 py-8 mt-6 mb-2 text-white">Need Volunteer</p>
+                                    data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 py-8 mt-6 mb-2 text-white">Need Volunteer Card
+                                </p>
                             </div>
                             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 ">
                                 {
@@ -116,13 +118,25 @@ const AllNeedVolunteer = () => {
 
                             </div>
 
+                            {/* paginate */}
+                            <div className="mt-10 flex justify-center items-center  ">
+                                <div className="join">
+                                    <button className="join-item btn">1</button>
+                                    <button className="join-item btn btn-active">2</button>
+                                    <button className="join-item btn">3</button>
+                                    <button className="join-item btn">4</button>
+                                </div>
+
+                            </div>
+                            <hr className="mb-10" />
+
                         </div>
 
                     </>
                     : <>
                         {/* table form */}
-                        <div className="mt-20">
-                            <section className='container px-4 mx-auto pt-12'>
+                        <div className="mb-20">
+                            {/* <section className='container px-4 mx-auto pt-12'>
                                 <div className='flex items-center gap-x-3'>
                                     <h2 className='text-lg font-medium text-gray-800 '>My Bids</h2>
 
@@ -239,7 +253,123 @@ const AllNeedVolunteer = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                            </section> */}
+
+
+                            <div className='mt-10'>
+                                <p data-aos="fade-down"
+                                    data-aos-easing="ease-out-cubic"
+                                    data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 py-8 mt-6 mb-2 text-white">Need Volunteer Table
+                                </p>
+                            </div>
+
+                            <div className='flex flex-col mt-6'>
+                                <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
+                                    <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
+                                        <div className='overflow-hidden border border-gray-200  md:rounded-lg'>
+                                            <table className='min-w-full divide-y divide-gray-200'>
+                                                <thead className='bg-gray-50 text-lg font-bold'>
+                                                    <tr>
+                                                        <th
+                                                            scope='col'
+                                                            className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
+                                                        >
+                                                            <span className="text-lg font-bold">Si No</span>
+                                                        </th>
+                                                        <th
+                                                            scope='col'
+                                                            className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500'
+                                                        >
+                                                            <div className='flex items-center gap-x-3'>
+                                                                <span className="text-lg font-bold">Title</span>
+                                                            </div>
+                                                        </th>
+
+                                                        <th
+                                                            scope='col'
+                                                            className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
+                                                        >
+                                                            <span className="text-lg font-bold">Deadline</span>
+                                                        </th>
+
+
+
+                                                        <th
+                                                            scope='col'
+                                                            className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
+                                                        >
+                                                            <span className="text-lg font-bold">Category</span>
+                                                        </th>
+
+                                                        <th
+                                                            scope='col'
+                                                            className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
+                                                        >
+                                                            <span className="text-lg font-bold">No. Volunteer</span>
+                                                        </th>
+
+                                                        <th className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
+                                                            <span className="text-lg font-bold">Action</span>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                {
+                                                    needVolunteer.map((requestItem, index) =>
+                                                        <tbody key={requestItem._id} className='bg-white divide-y divide-gray-200 '>
+                                                            <tr>
+                                                                <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
+                                                                    {index + 1}
+                                                                </td>
+                                                                <td className='px-4 py-4 text-sm text-gray-500 flex gap-3 items-center   whitespace-nowrap'>
+                                                                    <div className="avatar">
+                                                                        <div className="mask mask-squircle w-12 h-12">
+                                                                            <img src={requestItem.Thumbnail} alt="Avatar Tailwind CSS Component" />
+                                                                        </div>
+                                                                    </div>
+                                                                    {requestItem.Title}
+                                                                </td>
+
+                                                                <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
+                                                                    {new Date(requestItem.startDate).toLocaleDateString()}
+                                                                </td>
+
+
+                                                                <td className='px-4 py-4 text-sm whitespace-nowrap'>
+                                                                    <div className='flex items-center gap-x-2'>
+                                                                        <p
+                                                                            className='px-3 py-1 rounded-full text-blue-500 bg-blue-100/60
+                               text-xs'
+                                                                        >
+                                                                            {requestItem.selectedCategory}
+                                                                        </p>
+                                                                    </div>
+                                                                </td>
+                                                                <td className='px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap'>
+                                                                    <div className='inline-flex items-center px-3 py-1 rounded-full gap-x-2  '>
+                                                                        {
+                                                                            !requestItem.NoVolunteers ?
+                                                                                <><p className='font-extrabold rounded-full p-3 text-lg gap-x-2 bg-yellow-100/60 text-red-500'>No volunteers are needed</p></>
+                                                                                : <>
+                                                                                    <p className='text-xl font-bold'>{requestItem.NoVolunteers}</p>
+                                                                                    {/* <p className='font-bold'>Dead Line: {new Date(startDate).toLocaleDateString()}</p> */}
+                                                                                </>
+                                                                        }
+                                                                        {/* <span className='h-1.5 w-1.5 rounded-full '></span> */}
+                                                                        {/* <h2 className='text-sm font-normal '>{requestItem.NoVolunteers}</h2> */}
+                                                                    </div>
+                                                                </td>
+                                                                <td className='px-4 py-4 text-sm whitespace-nowrap'>
+                                                                    <Link to={`/details/${requestItem._id}`}><button className="btn btn-outline btn-success  font-bold text-lg">View Details</button></Link>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    )
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 
