@@ -15,7 +15,7 @@ const ManageMyPost = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/needVolunteer/${user?.email}`)
+        fetch(`http://localhost:5000/needVolunteer/${user?.email}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 console.log(data);
