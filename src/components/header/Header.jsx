@@ -1,10 +1,9 @@
-// import React from 'react';
 import { Tooltip } from 'react-tooltip'
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-// import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-// import img from '../../assets/photos/lo.png'
+import { CgProfile } from "react-icons/cg";
+
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -14,9 +13,7 @@ const Header = () => {
             .then()
             .catch()
     }
-    // console.log(user);
-    // console.log(user.displayName);
-    // toggle  theme
+    // theme
     const [theme, setTheme] = useState(
         localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
     );
@@ -38,42 +35,34 @@ const Header = () => {
 
     const links = < >
 
-        <li className="font-bold"><NavLink to="/">Home</NavLink></li>
+        <li className="font-bold "><NavLink to="/">Home</NavLink></li>
         <li className="font-bold"><NavLink to="/allNeedVolunteer">Need Volunteer</NavLink></li>
 
 
 
     </>
-
-
+    // bg-gradient-to-r from-cyan-500 to-blue-500
+    // bg-gradient-to-r from-cyan-700 to-blue-700  
     return (
-        <div className="navbar bg-base-300 rounded-xl">
+        <div className="navbar  bg-gradient-to-r from-cyan-700 to-blue-700 mb-10  ">
             <div className="navbar-start">
                 <div className="dropdown z-50">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-lg">
-                        {/* <li><a>Item 1</a></li>
-                    <li><a>Item 3</a></li> */}
-
-
                         {links}
                     </ul>
                 </div>
-                <NavLink to="/" className=" text-yellow-800    font-bold lg:text-3xl md:text-2xl text-xl"><p>HelpNexus</p></NavLink>
+                {/* bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 */}
+                <NavLink to="/" className="     font-bold lg:text-3xl md:text-2xl text-xl"><p className='px-2 rounded-3xl bg-gradient-to-r from-green-100 to-blue-100 hover:from-pink-100 hover:to-yellow-100'>HelpNexus</p></NavLink>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-lg">
-                    {/* <li><a>Item 1</a></li>
-                <li><a>Item 3</a></li> */}
-
-
-
-
                     {links}
                     <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button" className="btn font-bold btn-ghost rounded-btn">My Profile</div>
+
+                        <div tabIndex={0} role="button" className="btn font-bold btn-ghost  text-lg rounded-btn">My Profile <CgProfile /> </div>
                         <ul tabIndex={0} className="menu dropdown-content z-[10] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
                             <li className="font-bold"><NavLink to="/manageMyPost">Manage My Post</NavLink></li>
                             <li className="font-bold"><NavLink to="/needVolunteer">Add Volunteer Post</NavLink></li>
@@ -84,6 +73,19 @@ const Header = () => {
 
                 </ul>
             </div>
+            <div className="navbar-center flex lg:hidden">
+                <div className="dropdown dropdown-end">
+
+                    <div tabIndex={0} role="button" className="btn font-bold btn-ghost  text-4xl rounded-btn mx-1"><CgProfile /> </div>
+                    <ul tabIndex={0} className="menu dropdown-content z-[10] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                        <li className="font-bold"><NavLink to="/manageMyPost">Manage My Post</NavLink></li>
+                        <li className="font-bold"><NavLink to="/needVolunteer">Add Volunteer Post</NavLink></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
             <div className="navbar-end ">
 
 
@@ -93,7 +95,7 @@ const Header = () => {
                 {
                     user && <span className="font-bold mr-4"><NavLink to="">
                         <div data-tooltip-id="my-tooltippp" className=" relative group">
-                            <img src={user.photoURL ? user.photoURL : `https://i.ibb.co/qW320MT/images.jpg`} className="rounded-full w-12 h-12" />
+                            <img src={user.photoURL ? user.photoURL : `https://i.ibb.co/qW320MT/images.jpg`} className="rounded-full w-10 h-10" />
 
                             <Tooltip className='z-10'
                                 id="my-tooltippp"
@@ -144,7 +146,7 @@ const Header = () => {
                 </label>
                 {/* theme end */}
             </div>
-        </div>
+        </div >
     );
 };
 
