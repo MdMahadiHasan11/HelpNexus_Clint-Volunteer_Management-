@@ -93,7 +93,7 @@ const Register = () => {
 
 
     return (
-        <div hero className="min-h-screen hero-overlay bg-opacity-60" style={{ backgroundImage: 'url(https://i.ibb.co/SNC9bdz/login.jpg)' }}>
+        <div hero className="min-h-screen hero-overlay bg-opacity-60" style={{ backgroundImage: 'url(https://i.ibb.co/x6XV8X9/re.jpg)' }}>
              <div className='mt-10'>
                 <p data-aos="fade-down"
                     data-aos-easing="ease-out-cubic"
