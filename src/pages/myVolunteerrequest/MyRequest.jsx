@@ -18,7 +18,7 @@ const MyRequest = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/requestVolunteer/${user?.email}`)
+        fetch(`http://localhost:5000/requestVolunteer/${user?.email}`,{credentials :'include'})
             .then(res => res.json())
             .then(data => {
                 console.log(data);
