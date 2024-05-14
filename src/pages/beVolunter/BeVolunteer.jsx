@@ -72,7 +72,7 @@ const BeVolunteer = () => {
                 console.log(data);
                 if (data.insertedId) {
                     e.target.reset();
-                    navigate('/')
+                    
                     
                     Swal.fire({
                         title: 'Success!',
@@ -80,7 +80,7 @@ const BeVolunteer = () => {
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
-                    
+                    navigate('/manageMyPost')
 
                 }
             })

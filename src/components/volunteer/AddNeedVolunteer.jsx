@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import { AuthContext } from "../../providers/AuthProvider";
@@ -13,6 +13,7 @@ import DynamicTitle from '../dynamicTitle/DynamicTitle';
 const AddNeedVolunteer = () => {
 
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     // const { user } = useAuth() || {};
 
     const [selectedCategory, setSelectedOption] = useState("React.js");
@@ -61,6 +62,7 @@ const AddNeedVolunteer = () => {
                         confirmButtonText: 'Ok'
                     })
                     e.target.reset();
+                    navigate('/manageMyPost');
 
                 }
             })

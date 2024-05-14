@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../components/providers/AuthProvider';
 import DatePicker from "react-datepicker";
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,6 +11,7 @@ const Update = () => {
 
     const { id } = useParams();
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     console.log(id);
 
     const [volunteer, setVolunteer] = useState({});
@@ -75,6 +76,7 @@ const Update = () => {
                         icon: 'success',
                         confirmButtonText: 'ok'
                     })
+                    navigate('/manageMyPost')
 
                 }
             })

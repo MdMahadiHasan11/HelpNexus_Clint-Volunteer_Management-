@@ -26,7 +26,7 @@ const MyRequest = () => {
                 // displayAll(data)
             })
 
-    }, [user])
+    }, [user,requestItems])
 
     useEffect(() => {
 

@@ -13,6 +13,7 @@ import Details from "../pages/detail/Details";
 import ManageMyPost from "../pages/manageMyPost/ManageMyPost";
 import Update from "../pages/update/Update";
 import BeVolunteer from "../pages/beVolunter/BeVolunteer";
+import Category from "../pages/category/Category";
 
 const Routes = createBrowserRouter([
     {
@@ -66,6 +67,13 @@ const Routes = createBrowserRouter([
             {
                 path: '/beVolunteer/:id',
                 element: <PrivateRoute><BeVolunteer></BeVolunteer></PrivateRoute>
+            },
+            {
+                path: '/category/:subcategory',
+                // loader: () => fetch('/EstateData.json'),
+                element:<Category></Category>
+                
+
             },
         ]
     },

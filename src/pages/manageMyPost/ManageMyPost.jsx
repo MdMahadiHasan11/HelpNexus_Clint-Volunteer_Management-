@@ -23,7 +23,7 @@ const ManageMyPost = () => {
                 // displayAll(data)
             })
 
-    }, [user])
+    }, [user,items])
 
 
 
