@@ -15,15 +15,15 @@ const ManageMyPost = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/needVolunteer/${user?.email}`, { credentials: 'include' })
+        fetch(`https://help-nexus-server.vercel.app/needVolunteer/${user?.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setItem(data);
                 // displayAll(data)
             })
 
-    }, [user ])
+    }, [items ])
 
     // items
 
@@ -46,12 +46,12 @@ const ManageMyPost = () => {
                     icon: "success"
                 });
 
-                fetch(`http://localhost:5000/delete/${_id}`, {
+                fetch(`https://help-nexus-server.vercel.app/delete/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
                             const remaining = user.filter(user => user._id !== _id);
                             setItem(remaining);

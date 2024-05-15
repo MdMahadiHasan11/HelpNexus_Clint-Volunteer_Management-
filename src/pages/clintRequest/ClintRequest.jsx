@@ -14,15 +14,15 @@ const ClintRequest = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/clintRequest/${user?.email}`, { credentials: 'include' })
+        fetch(`https://help-nexus-server.vercel.app/clintRequest/${user?.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setRequestItem(data);
                 // displayAll(data)
             })
 
-    }, [user])
+    }, [requestItems])
 
     // requestItems
 
@@ -36,9 +36,9 @@ const ClintRequest = () => {
     const handleAccept = (_id, jobId,Status) => {
         if(Status === 'pending') return toast.error('Already Accept')
             if(Status === 'rejected') return toast.error('Already Reject')
-        console.log(_id);
-        console.log(jobId);
-        console.log(user.email)
+        // console.log(_id);
+        // console.log(jobId);
+        // console.log(user.email)
 
         Swal.fire({
             title: "Are you sure?",
@@ -61,7 +61,7 @@ const ClintRequest = () => {
                 const Status = "pending";
                 // const/ status =
 
-                fetch(`http://localhost:5000/clintStatusUpdate/${_id}`, {
+                fetch(`https://help-nexus-server.vercel.app/clintStatusUpdate/${_id}`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -70,7 +70,7 @@ const ClintRequest = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.modifiedCount > 0) {
                             console.log('clintStatusUpdate for volunteer')
                         }
@@ -80,7 +80,7 @@ const ClintRequest = () => {
 
                 // delete request
 
-                // fetch(`http://localhost:5000/requestDelete/${_id}`, {
+                // fetch(`https://help-nexus-server.vercel.app/requestDelete/${_id}`, {
                 //     method: 'DELETE'
                 // })
                 //     .then(res => res.json())
@@ -102,9 +102,9 @@ const ClintRequest = () => {
 
         if(Status === 'rejected') return toast.error('Already rejected')
 
-        console.log(_id);
-        console.log(jobId);
-        console.log(user.email)
+        // console.log(_id);
+        // console.log(jobId);
+        // console.log(user.email)
 
         Swal.fire({
             title: "Are you sure?",
@@ -127,7 +127,7 @@ const ClintRequest = () => {
                 const Status = "rejected";
                 // const/ status =
 
-                fetch(`http://localhost:5000/clintStatusUpdateReject/${_id}`, {
+                fetch(`https://help-nexus-server.vercel.app/clintStatusUpdateReject/${_id}`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -138,7 +138,7 @@ const ClintRequest = () => {
                     .then(data => {
                         console.log(data);
                         if (data.modifiedCount > 0) {
-                            console.log('clintStatusUpdate for volunteer')
+                            // console.log('clintStatusUpdate for volunteer')
                         }
                     })
 

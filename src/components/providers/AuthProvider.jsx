@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log('user auth state change ', currentUser);
+            // console.log('user auth state change ', currentUser);
 
             const userEmail = currentUser?.email || user?.email;
             const loggedUser = { email: userEmail }
@@ -71,16 +71,16 @@ const AuthProvider = ({ children }) => {
             // if user exist then issue a token
             // console.log(currentUser);
             if (currentUser) {
-                axios.post('http://localhost:5000/jwtt', loggedUser, { withCredentials: true })
+                axios.post('https://help-nexus-server.vercel.app/jwtt', loggedUser, { withCredentials: true })
                     .then(res => {
-                        console.log('token', res.data);
+                        // console.log('token', res.data);
                     })
             }
             else {
 
-                axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
+                axios.post('https://help-nexus-server.vercel.app/logout', loggedUser, { withCredentials: true })
                     .then(res => {
-                        console.log('tokennn', res.data);
+                        // console.log('tokennn', res.data);
                     })
 
             }

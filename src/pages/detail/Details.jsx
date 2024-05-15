@@ -5,15 +5,15 @@ import { Link, useParams } from "react-router-dom";
 const Details = () => {
 
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
 
     const [viewVolunteer, setViewVolunteer] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/details/${id}`)
+        fetch(`https://help-nexus-server.vercel.app/details/${id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setViewVolunteer(data);
 
             })

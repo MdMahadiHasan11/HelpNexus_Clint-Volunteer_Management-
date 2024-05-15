@@ -18,12 +18,12 @@ const Home = () => {
     const [loading1, setLoading1] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/sortDate`)
+        fetch(`https://help-nexus-server.vercel.app/sortDate`)
             .then(res => res.json())
             .then(data => {
                 setNeedVolunteerPosts(data);
                 setLoading(false);
-                console.log(data);
+                // console.log(data);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -33,12 +33,12 @@ const Home = () => {
 
     // new last 3 data
     useEffect(() => {
-        fetch(`http://localhost:5000/newPost`)
+        fetch(`https://help-nexus-server.vercel.app/newPost`)
             .then(res => res.json())
             .then(data => {
                 setNeedVolunteerPosts1(data);
                 setLoading1(false);
-                console.log(data);
+                // console.log(data);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);

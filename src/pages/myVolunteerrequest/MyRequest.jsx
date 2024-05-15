@@ -18,15 +18,15 @@ const MyRequest = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/requestVolunteer/${user?.email}`, { credentials: 'include' })
+        fetch(`https://help-nexus-server.vercel.app/requestVolunteer/${user?.email}`, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setRequestItem(data);
                 // displayAll(data)
             })
 
-    }, [user])
+    }, [requestItems])
     // requestItems
 
     useEffect(() => {
@@ -36,8 +36,8 @@ const MyRequest = () => {
 
 
     const handleDelete = (_id, jobId) => {
-        console.log(_id);
-        console.log(jobId);
+        // console.log(_id);
+        // console.log(jobId);
 
         Swal.fire({
             title: "Are you sure?",
@@ -57,7 +57,7 @@ const MyRequest = () => {
 
                 // update status for volunteer 
 
-                fetch(`http://localhost:5000/noVolunteerUpdate/${jobId}`, {
+                fetch(`https://help-nexus-server.vercel.app/noVolunteerUpdate/${jobId}`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -66,9 +66,9 @@ const MyRequest = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.modifiedCount > 0) {
-                            console.log('update no of volunteer')
+                            // console.log('update no of volunteer')
                         }
                     })
 
@@ -76,12 +76,12 @@ const MyRequest = () => {
 
                 // delete request
 
-                fetch(`http://localhost:5000/requestDelete/${_id}`, {
+                fetch(`https://help-nexus-server.vercel.app/requestDelete/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
                             const remaining = user.filter(user => user._id !== _id);
                             setRequestItem(remaining);

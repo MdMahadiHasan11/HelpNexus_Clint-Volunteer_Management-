@@ -39,12 +39,12 @@ const AddNeedVolunteer = () => {
 
         const newNeedVolunteer = { userName, email, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory }
 
-        console.log(newNeedVolunteer)
+        // console.log(newNeedVolunteer)
 
 
         // send data
 
-        fetch('http://localhost:5000/needVolunteer', {
+        fetch('https://help-nexus-server.vercel.app/needVolunteer', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -53,7 +53,7 @@ const AddNeedVolunteer = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
 
                     Swal.fire({

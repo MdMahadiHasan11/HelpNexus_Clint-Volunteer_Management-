@@ -13,7 +13,7 @@ const Update = () => {
     const { id } = useParams();
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    console.log(id);
+    // console.log(id);
 
     const [volunteer, setVolunteer] = useState({});
 
@@ -21,7 +21,7 @@ const Update = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/updateVolunteer/${id}`)
+        fetch(`https://help-nexus-server.vercel.app/updateVolunteer/${id}`)
             .then(res => res.json())
             .then(data => {
                 setVolunteer(data);
@@ -57,9 +57,9 @@ const Update = () => {
 
         const updateNeedVolunteer = { userName, email, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory }
 
-        console.log(id)
+        // console.log(id)
 
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://help-nexus-server.vercel.app/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -68,7 +68,7 @@ const Update = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
 
                     Swal.fire({

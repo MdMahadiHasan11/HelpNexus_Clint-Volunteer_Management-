@@ -19,7 +19,7 @@ const AllNeedVolunteer = () => {
     useEffect(() => {
 
         if (searchText.trim() !== "") {
-            fetch(`http://localhost:5000/search/${searchText}`)
+            fetch(`https://help-nexus-server.vercel.app/search/${searchText}`)
                 .then(res => res.json())
                 .then(data => {
                     setNeedVolunteer(data);
@@ -28,7 +28,7 @@ const AllNeedVolunteer = () => {
         }
         else {
 
-            fetch(`http://localhost:5000/needVolunteer`)
+            fetch(`https://help-nexus-server.vercel.app/needVolunteer`)
                 .then(res => res.json())
                 .then(data => {
 
@@ -41,7 +41,7 @@ const AllNeedVolunteer = () => {
 
     useEffect(() => {
 
-        console.log(needVolunteer);
+        // console.log(needVolunteer);
 
     }, [needVolunteer]);
 

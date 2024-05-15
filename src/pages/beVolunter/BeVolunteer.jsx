@@ -20,11 +20,11 @@ const BeVolunteer = () => {
     const [beVolunteer, setBeVolunteer] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/beVolunteer/${id}`)
+        fetch(`https://help-nexus-server.vercel.app/beVolunteer/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBeVolunteer(data);
-                console.log(data)
+                // console.log(data)
             })
     }, [id])
 
@@ -71,10 +71,10 @@ const BeVolunteer = () => {
 
         const beVolunteerP = { jobId, organizerName, organizerEmail, Thumbnail, Title, description, Location, NoVolunteers, startDate, selectedCategory, volunteerName, volunteerEmail, Suggestion, Status }
 
-        console.log(beVolunteerP)
+        // console.log(beVolunteerP)
 
 
-        fetch('http://localhost:5000/beVolunteer', {
+        fetch('https://help-nexus-server.vercel.app/beVolunteer', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

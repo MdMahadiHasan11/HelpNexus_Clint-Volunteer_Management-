@@ -24,7 +24,7 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const { email, password, name, photoUrl } = data;
-        console.log(name, email, password, photoUrl)
+        // console.log(name, email, password, photoUrl)
 
 
         // password check

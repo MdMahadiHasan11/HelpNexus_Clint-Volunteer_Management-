@@ -11,10 +11,10 @@ const Category = () => {
     const [items, setItem] = useState([]);
     useEffect(() => {
 
-        fetch(`http://localhost:5000/category/${subcategory}`)
+        fetch(`https://help-nexus-server.vercel.app/category/${subcategory}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setItem(data);
                 setLoading(false);
 

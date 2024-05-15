@@ -36,7 +36,7 @@ const Login = () => {
             .then(result => {
                 const loginUser = result.user;
                 toast.success("Successfully Login");
-                console.log(loginUser)
+                // console.log(loginUser)
                 setUser(loginUser);
                 navigate(location?.state ? location.state : '/')
             })
@@ -52,15 +52,15 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password')
 
-        console.log(email)
-        console.log(password)
+        // console.log(email)
+        // console.log(password)
 
 
 
         signIn(email, password)
             .then(result => {
                 toast.success("Successfully Login");
-                console.log(result.user)
+                // console.log(result.user)
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
