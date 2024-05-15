@@ -23,9 +23,9 @@ const ManageMyPost = () => {
                 // displayAll(data)
             })
 
-    }, [user, items])
+    }, [user ])
 
-
+    // items
 
     const handleDelete = _id => {
         console.log(_id);
@@ -65,7 +65,7 @@ const ManageMyPost = () => {
 
 
     return (
-        <div className="mt-10 overflow-x-auto">
+        <div className=" ">
             <DynamicTitle></DynamicTitle>
             {
                 !items.length ?
@@ -156,10 +156,10 @@ const ManageMyPost = () => {
                        */}
                         <div>
 
-                            <div className='my-10'>
+                            <div className=''>
                                 <p data-aos="fade-down"
                                     data-aos-easing="ease-out-cubic"
-                                    data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 py-8 mt-6 mb-2 text-white">My Need Volunteers Post
+                                    data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 py-8 mt-6 mb-2 text-white">My Post For Need Volunteers 
                                 </p>
                             </div>
                            

@@ -66,6 +66,7 @@ const Header = () => {
                         <ul tabIndex={0} className="menu dropdown-content z-[10] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
                             <li className="font-bold"><NavLink to="/manageMyPost">Manage My Post</NavLink></li>
                             <li className="font-bold"><NavLink to="/needVolunteer">Add Volunteer Post</NavLink></li>
+                            <li className="font-bold"><NavLink to="/clintRequest">All Volunteer Request</NavLink></li>
                         </ul>
                     </div>
 
@@ -80,6 +81,7 @@ const Header = () => {
                     <ul tabIndex={0} className="menu dropdown-content z-[10] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
                         <li className="font-bold"><NavLink to="/manageMyPost">Manage My Post</NavLink></li>
                         <li className="font-bold"><NavLink to="/needVolunteer">Add Volunteer Post</NavLink></li>
+                        <li className="font-bold"><NavLink to="/clintRequest">Clint Request</NavLink></li>
                     </ul>
                 </div>
             </div>

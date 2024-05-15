@@ -14,6 +14,7 @@ import ManageMyPost from "../pages/manageMyPost/ManageMyPost";
 import Update from "../pages/update/Update";
 import BeVolunteer from "../pages/beVolunter/BeVolunteer";
 import Category from "../pages/category/Category";
+import ClintRequest from "../pages/clintRequest/ClintRequest";
 
 const Routes = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const Routes = createBrowserRouter([
             {
                 path: '/manageMyPost',
                 element: <PrivateRoute><ManageMyPost></ManageMyPost></PrivateRoute>
+            },
+            {
+                path: '/clintRequest',
+                element: <PrivateRoute><ClintRequest></ClintRequest></PrivateRoute>
             },
             {
                 path: '/login',

@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../components/providers/AuthProvider';
 import DatePicker from "react-datepicker";
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2'
 import "react-datepicker/dist/react-datepicker.css";
 import { Helmet } from 'react-helmet';
 import { Fade } from 'react-awesome-reveal';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const BeVolunteer = () => {
 
@@ -33,9 +35,20 @@ const BeVolunteer = () => {
 
 
     const handleUpdate = (e) => {
-
-        console.log("hi")
         e.preventDefault();
+        if (user?.email === beVolunteer.email) {
+            return Swal.fire({
+                title: 'Warning!',
+                text: 'You can\'t be a volunteer for your post',
+                icon: 'warning',
+                timer: 10000,
+                confirmButtonText: 'Got It',
+                hero: 'true' 
+            });
+            // return toast.error('You can\'t be a volunteer for your post')
+        }
+
+
         const form = new FormData(e.currentTarget);
 
         const jobId = beVolunteer._id;
@@ -93,6 +106,7 @@ const BeVolunteer = () => {
 
     return (
         <div hero className="min-h-screen hero-overlay bg-opacity-60" style={{ backgroundImage: 'url(https://i.ibb.co/x6XV8X9/re.jpg)' }}>
+             <ToastContainer />
             <div className=''>
                 <p data-aos="fade-down"
                     data-aos-easing="ease-out-cubic"
@@ -108,7 +122,7 @@ const BeVolunteer = () => {
                 </Helmet>
 
 
-                <section className='lg:px-10 pt-2 rounded-2xl pb-10 md:px-4 px-2 mt-10 mx-auto bg-white rounded-md shadow-2xl '>
+                <section className='lg:px-10 pt-2 rounded-2xl pb-10 md:px-4 px-2 mt-10 mx-auto bg-white  shadow-2xl '>
                     {/* image info */}
                     <div className='text-center'>
                         {/* image  */}

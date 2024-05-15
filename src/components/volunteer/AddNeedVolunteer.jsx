@@ -60,7 +60,9 @@ const AddNeedVolunteer = () => {
                         title: 'Success!',
                         text: 'Added Volunteer Post Successfully',
                         icon: 'success',
-                        confirmButtonText: 'Ok'
+                        
+                        confirmButtonText: 'Got It'
+                        
                     })
                     e.target.reset();
                     navigate('/manageMyPost');
