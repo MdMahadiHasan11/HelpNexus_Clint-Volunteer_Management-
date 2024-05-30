@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import DynamicTitle from "../../components/dynamicTitle/DynamicTitle";
 import { RiLayoutGrid2Fill } from "react-icons/ri";
 import { MdTableRows } from "react-icons/md";
-import { FiDivideCircle } from "react-icons/fi";
+// import { FiDivideCircle } from "react-icons/fi";
+import { IoIosArrowDown } from "react-icons/io";
 
 const AllNeedVolunteer = () => {
     // const needVolunteers = useLoaderData();
@@ -14,6 +15,7 @@ const AllNeedVolunteer = () => {
 
     // work
     const [needVolunteer, setNeedVolunteer] = useState([]);
+    const [sneedVolunteer, ssetNeedVolunteer] = useState([]);
 
     // const searchText
     useEffect(() => {
@@ -59,6 +61,29 @@ const AllNeedVolunteer = () => {
         else setLayout(true)
     }
 
+
+
+    const handleDisplaySort = sort => {
+        fetch(`https://help-nexus-server.vercel.app/needVolunteer`)
+                .then(res => res.json())
+                .then(data => {
+
+                    ssetNeedVolunteer(data);
+                })
+        // setTemp1(['']);
+        if (sort === 'Ascending') {
+            const sortedNumbers = sneedVolunteer.slice().sort((a, b) => a.NoVolunteers
+            - b.NoVolunteers); 
+            setNeedVolunteer(sortedNumbers);
+            
+        }
+        else if (sort === 'Descending') {
+            const sortedNumbers = sneedVolunteer.slice().sort((a, b) => b.NoVolunteers - a.NoVolunteers);
+            setNeedVolunteer(sortedNumbers);
+        }
+
+    };
+
     return (
         <div>
             <DynamicTitle></DynamicTitle>
@@ -78,6 +103,17 @@ const AllNeedVolunteer = () => {
                                     </label>
                                 </div>
                             </form>
+                        </div>
+                        {/* dropdown */}
+                        <div className="flex justify-center items-center">
+                            <details className="dropdown">
+                                <summary className="m-1 btn bg-orange-600">Volunteers Need Sort<IoIosArrowDown /></summary>
+                                <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-300  font-bold rounded-box w-52">
+
+                                    <li className="border-2" onClick={() => handleDisplaySort('Ascending')}><a>Ascending</a></li>
+                                    <li className="border-2" onClick={() => handleDisplaySort('Descending')}><a>Descending</a></li>
+                                </ul>
+                            </details>
                         </div>
                         {/* dropdown and icon */}
                         <div className="flex justify-end flex-1 px-2">
